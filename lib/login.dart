@@ -10,6 +10,7 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginState extends State<LoginPage>{
+  var size,height,width;
    late String _email,_password;
    void signin() async {
      try {
@@ -35,99 +36,89 @@ class _LoginState extends State<LoginPage>{
 
   @override
   Widget build(BuildContext context) {
+     size=MediaQuery.of(context).size;
+     height=size.height;
+     width=size.width;
   return Scaffold(
-    body: LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints)
-      {
-        if(constraints.maxWidth>600){
-          return Column(
-
-            children: [
-              Container(
-
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Username ',
-                    prefixIcon: Icon(Icons.account_box),
-                  ),
-                  onChanged: (input){
-                    _email=input;
-                  }
-
-                ),
-
-              ),
-              Container(
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Password ',
-                    prefixIcon: Icon(Icons.password),
-                  ),
-                  obscureText: true,
-
-                  onChanged: (input)=>_password=input,
-                ),
-
-              ),
-              Container(
-                  child: TextButton(
-               child: Text('LOGIN'),
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.purple),
-              overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                    (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.hovered))
-                    return Colors.blue.withOpacity(0.20);
-                  if (states.contains(MaterialState.focused) ||
-                      states.contains(MaterialState.pressed))
-                    return Colors.blue.withOpacity(0.60);
-                  return null; // Defer to the widget's default.
-                },
-              ),
-            ),
-      onPressed: ()  {
-          signin();
-
-      }),
+    body:Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/background.jpg"),
+          fit: BoxFit.cover
+        )
       ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        //crossAxisAlignment: CrossAxisAlignment.center,
 
-            ],
-          );
-        }
-        else{
-          return Center(
-            child: Column(
+
               children: [
-                 Container(
-                    height: constraints.maxHeight * 0.25,
-                    alignment: Alignment.center,
+                Center(
+                  child: Container(
+
+                    width: MediaQuery.of(context).size.width/2,
+                    height: MediaQuery.of(context).size.height * 0.15,
+                    color: Colors.greenAccent,
                     child: TextField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: 'Username test mobile ',
+                        hintText: 'Username ',
                         prefixIcon: Icon(Icons.account_box),
                       ),
+                      onChanged: (input){
+                        _email=input;
+                      }
+
                     ),
 
                   ),
+                ),
                 Container(
+                  width: MediaQuery.of(context).size.width/2,
+                  height: MediaQuery.of(context).size.height * 0.10,
+                  color: Colors.greenAccent,
                   child: TextField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Password test mobile',
+                      hintText: 'Password ',
                       prefixIcon: Icon(Icons.password),
                     ),
-                  ),
+                    obscureText: true,
 
+                    onChanged: (input)=>_password=input,
+                  ),
 
                 ),
                 Container(
+                  width: MediaQuery.of(context).size.width/2,
+
+                    child: TextButton(
+                 child: Text('LOGIN'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.purple),
+                overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.hovered))
+                      return Colors.blue.withOpacity(0.20);
+                    if (states.contains(MaterialState.focused) ||
+                        states.contains(MaterialState.pressed))
+                      return Colors.blue.withOpacity(0.60);
+                    return null; // Defer to the widget's default.
+                  },
+                ),
+              ),
+        onPressed: ()  {
+            signin();
+
+        }),
+        ),
+                Container(
+                  width: MediaQuery.of(context).size.width/2,
                   child: TextButton(
-                      child: Text('LOGIN'),
+                      child: Text('Create an account'),
                       style: ButtonStyle(
-                        foregroundColor: MaterialStateProperty.all<Color>(Colors.purple),
+                        foregroundColor: MaterialStateProperty.all<Color>(Colors.lightBlue),
                         overlayColor: MaterialStateProperty.resolveWith<Color?>(
                               (Set<MaterialState> states) {
                             if (states.contains(MaterialState.hovered))
@@ -139,30 +130,22 @@ class _LoginState extends State<LoginPage>{
                           },
                         ),
                       ),
-                      onPressed: () {
+                      onPressed: ()  {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, '/signup', ModalRoute.withName('/signup'));
 
                       }),
                 ),
 
-
-
-
               ],
-
             ),
+    )
+  );
+        }
 
-          );
+
+
 
         }
 
-      },
-
-    ),
-
-  );
-
-  }
-
-
-}
 

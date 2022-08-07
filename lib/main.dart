@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:myapp/login.dart';
 import 'package:myapp/userprofile.dart';
 import 'firebase_options.dart';
+import 'package:url_strategy/url_strategy.dart';
+import 'package:myapp/signup.dart';
 
 void main() async {
-
+  setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -24,6 +26,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       routes: {
         '/home': (context) =>UserProfile(),
+        '/signup':(context)=>SignupPage(),
+        '/login':(context)=>LoginPage(),
       },
       theme: ThemeData(
         // This is the theme of your application.
