@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "482848523328",
+    "project_id": "room-sharing-4a199",
+    "storage_bucket": "room-sharing-4a199.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482848523328:android:2366fbc65b6cb0920ecba5",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482848523328-1f1926tg9meh7avbh0gnn2rjd74khped.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDejKISyQJ6aXx3WQMoYU_uAB7sNqFdiMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482848523328-1f1926tg9meh7avbh0gnn2rjd74khped.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "482848523328-qf8gejhjmss3p61u7v06gvetk37k8fio.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

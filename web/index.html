@@ -54,5 +54,24 @@
       });
     });
   </script>
+  <script type="module">
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-firestore.js";
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBwqjWuEw1vcuxOSMRf2GEkNWwt0h3Yq0U",
+    authDomain: "room-sharing-4a199.firebaseapp.com",
+    projectId: "room-sharing-4a199",
+    storageBucket: "room-sharing-4a199.appspot.com",
+    messagingSenderId: "482848523328",
+    appId: "1:482848523328:web:a2cc4a1a8b04949d0ecba5"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
 </body>
 </html>
