@@ -47,98 +47,102 @@ class _LoginState extends State<LoginPage>{
           fit: BoxFit.cover
         )
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        //crossAxisAlignment: CrossAxisAlignment.center,
+      child: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            //crossAxisAlignment: CrossAxisAlignment.center,
 
 
-              children: [
-                Center(
-                  child: Container(
+                  children: [
+                    Center(
+                      child: Container(
 
-                    width: MediaQuery.of(context).size.width/2,
-                    height: MediaQuery.of(context).size.height * 0.15,
-                    color: Colors.greenAccent,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Username ',
-                        prefixIcon: Icon(Icons.account_box),
-                      ),
-                      onChanged: (input){
-                        _email=input;
-                      }
+                        width: MediaQuery.of(context).size.width/1.5,
+                        height: MediaQuery.of(context).size.height * 0.15,
+                        color: Colors.greenAccent,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: 'Username ',
+                            prefixIcon: Icon(Icons.account_box),
+                          ),
+                          onChanged: (input){
+                            _email=input;
+                          }
 
-                    ),
-
-                  ),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width/2,
-                  height: MediaQuery.of(context).size.height * 0.10,
-                  color: Colors.greenAccent,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Password ',
-                      prefixIcon: Icon(Icons.password),
-                    ),
-                    obscureText: true,
-
-                    onChanged: (input)=>_password=input,
-                  ),
-
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width/2,
-
-                    child: TextButton(
-                 child: Text('LOGIN'),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.purple),
-                overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                      (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.hovered))
-                      return Colors.blue.withOpacity(0.20);
-                    if (states.contains(MaterialState.focused) ||
-                        states.contains(MaterialState.pressed))
-                      return Colors.blue.withOpacity(0.60);
-                    return null; // Defer to the widget's default.
-                  },
-                ),
-              ),
-        onPressed: ()  {
-            signin();
-
-        }),
-        ),
-                Container(
-                  width: MediaQuery.of(context).size.width/2,
-                  child: TextButton(
-                      child: Text('Create an account'),
-                      style: ButtonStyle(
-                        foregroundColor: MaterialStateProperty.all<Color>(Colors.lightBlue),
-                        overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                              (Set<MaterialState> states) {
-                            if (states.contains(MaterialState.hovered))
-                              return Colors.blue.withOpacity(0.20);
-                            if (states.contains(MaterialState.focused) ||
-                                states.contains(MaterialState.pressed))
-                              return Colors.blue.withOpacity(0.60);
-                            return null; // Defer to the widget's default.
-                          },
                         ),
+
                       ),
-                      onPressed: ()  {
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, '/signup', ModalRoute.withName('/signup'));
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width/1.5,
+                      height: MediaQuery.of(context).size.height * 0.10,
+                      color: Colors.greenAccent,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Password ',
+                          prefixIcon: Icon(Icons.password),
+                        ),
+                        obscureText: true,
 
-                      }),
-                ),
+                        onChanged: (input)=>_password=input,
+                      ),
 
-              ],
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width/1.5,
+
+                        child: TextButton(
+                     child: Text('LOGIN'),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),
+                    foregroundColor: MaterialStateProperty.all<Color>(Colors.purple),
+                    overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                          (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.hovered))
+                          return Colors.blue.withOpacity(0.20);
+                        if (states.contains(MaterialState.focused) ||
+                            states.contains(MaterialState.pressed))
+                          return Colors.blue.withOpacity(0.60);
+                        return null; // Defer to the widget's default.
+                      },
+                    ),
+                  ),
+            onPressed: ()  {
+                signin();
+
+            }),
             ),
+                    Container(
+                      width: MediaQuery.of(context).size.width/2,
+                      child: TextButton(
+                          child: Text('Create an account'),
+                          style: ButtonStyle(
+                            foregroundColor: MaterialStateProperty.all<Color>(Colors.lightBlue),
+                            overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                                  (Set<MaterialState> states) {
+                                if (states.contains(MaterialState.hovered))
+                                  return Colors.blue.withOpacity(0.20);
+                                if (states.contains(MaterialState.focused) ||
+                                    states.contains(MaterialState.pressed))
+                                  return Colors.blue.withOpacity(0.60);
+                                return null; // Defer to the widget's default.
+                              },
+                            ),
+                          ),
+                          onPressed: ()  {
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, '/signup', ModalRoute.withName('/signup'));
+
+                          }),
+                    ),
+
+                  ],
+                ),
+        ),
+      ),
     )
   );
         }
