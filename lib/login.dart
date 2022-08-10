@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:blur/blur.dart';
 
 class LoginPage extends StatefulWidget{
   const LoginPage({Key? key}) : super(key: key);
@@ -27,9 +28,30 @@ class _LoginState extends State<LoginPage>{
 
      } on FirebaseAuthException catch (e) {
        if (e.code == 'user-not-found') {
-         print('No user found for that email.');
+        // print('No user found for that email.');
+        final snackBar= SnackBar(
+           content: Text('No user found for that email',textAlign: TextAlign.center,),
+           duration: Duration(seconds: 5,microseconds: 2000),
+
+         );
+         ScaffoldMessenger.of(context).showSnackBar(snackBar);
        } else if (e.code == 'wrong-password') {
-         print('Wrong password provided for that user.');
+         //print('Wrong password provided for that user.');
+         final snackBar= SnackBar(
+           content: Text('wrong-password',textAlign: TextAlign.center,),
+           duration: Duration(seconds: 5,microseconds: 2000),
+
+         );
+         ScaffoldMessenger.of(context).showSnackBar(snackBar);
+       }
+       else{
+         final snackBar= SnackBar(
+           content: Text('Please check the login credentials',textAlign: TextAlign.center,),
+           duration: Duration(seconds: 5,microseconds: 2000),
+
+         );
+         ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
        }
      }
    }
@@ -43,10 +65,12 @@ class _LoginState extends State<LoginPage>{
     body:Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/background.jpg"),
+          image: AssetImage("assets/images/bcimage.jpg"),
           fit: BoxFit.cover
         )
+
       ),
+
       child: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -59,11 +83,13 @@ class _LoginState extends State<LoginPage>{
                       child: Container(
 
                         width: MediaQuery.of(context).size.width/1.5,
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        color: Colors.greenAccent,
+                        height: MediaQuery.of(context).size.height * 0.10,
+                        color: Colors.white54,
                         child: TextField(
+
+                            style: TextStyle(color: Colors.black),
                           decoration: InputDecoration(
-                            border: OutlineInputBorder(),
+                            border: OutlineInputBorder( borderRadius: BorderRadius.zero,),
                             hintText: 'Username ',
                             prefixIcon: Icon(Icons.account_box),
                           ),
@@ -78,10 +104,10 @@ class _LoginState extends State<LoginPage>{
                     Container(
                       width: MediaQuery.of(context).size.width/1.5,
                       height: MediaQuery.of(context).size.height * 0.10,
-                      color: Colors.greenAccent,
+                      color: Colors.white54,
                       child: TextField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.zero, ),
                           hintText: 'Password ',
                           prefixIcon: Icon(Icons.password),
                         ),
@@ -98,7 +124,7 @@ class _LoginState extends State<LoginPage>{
                      child: Text('LOGIN'),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),
-                    foregroundColor: MaterialStateProperty.all<Color>(Colors.purple),
+                    foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
                     overlayColor: MaterialStateProperty.resolveWith<Color?>(
                           (Set<MaterialState> states) {
                         if (states.contains(MaterialState.hovered))
@@ -118,16 +144,16 @@ class _LoginState extends State<LoginPage>{
                     Container(
                       width: MediaQuery.of(context).size.width/2,
                       child: TextButton(
-                          child: Text('Create an account'),
+                          child: Text('Create an account?'),
                           style: ButtonStyle(
-                            foregroundColor: MaterialStateProperty.all<Color>(Colors.lightBlue),
+                            foregroundColor: MaterialStateProperty.all<Color>(Colors.blueAccent),
                             overlayColor: MaterialStateProperty.resolveWith<Color?>(
                                   (Set<MaterialState> states) {
                                 if (states.contains(MaterialState.hovered))
-                                  return Colors.blue.withOpacity(0.20);
+                                  return Colors.black.withOpacity(0.20);
                                 if (states.contains(MaterialState.focused) ||
                                     states.contains(MaterialState.pressed))
-                                  return Colors.blue.withOpacity(0.60);
+                                  return Colors.black.withOpacity(0.60);
                                 return null; // Defer to the widget's default.
                               },
                             ),

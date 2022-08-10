@@ -39,6 +39,7 @@ dependencies:
   firebase_core: ^1.20.0
   email_validator: ^2.1.17
   url_strategy: ^0.2.0
+  blur: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +66,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
        - assets/images/background.jpg
+       - assets/images/bcimage.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
