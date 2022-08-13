@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'My app',
       routes: {
         '/home': (context) =>UserProfile(),
         '/signup':(context)=>SignupPage(),

@@ -146,7 +146,7 @@ class _LoginState extends State<LoginPage>{
                       child: TextButton(
                           child: Text('Create an account?'),
                           style: ButtonStyle(
-                            foregroundColor: MaterialStateProperty.all<Color>(Colors.blueAccent),
+                            foregroundColor: MaterialStateProperty.all<Color>(Colors.black87),
                             overlayColor: MaterialStateProperty.resolveWith<Color?>(
                                   (Set<MaterialState> states) {
                                 if (states.contains(MaterialState.hovered))
