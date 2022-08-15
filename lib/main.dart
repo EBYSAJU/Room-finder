@@ -1,10 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/login.dart';
+import 'package:myapp/test.dart';
 import 'package:myapp/userprofile.dart';
 import 'firebase_options.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:myapp/signup.dart';
+import 'package:myapp/test.dart';
+
 
 void main() async {
   setPathUrlStrategy();
@@ -25,9 +28,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'My app',
       routes: {
-        '/home': (context) =>UserProfile(),
+        '/home': (context) =>profile(),
         '/signup':(context)=>SignupPage(),
         '/login':(context)=>LoginPage(),
+        '/upload':(context)=>HomePage(title: 'crop image')
       },
       theme: ThemeData(
         // This is the theme of your application.

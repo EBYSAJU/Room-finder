@@ -21,8 +21,10 @@ class _LoginState extends State<LoginPage>{
        );
        if(credential!=null){
        // print("hello");
+       //  Navigator.pushNamedAndRemoveUntil(
+         //    context, '/home', ModalRoute.withName('/home'));
          Navigator.pushNamedAndRemoveUntil(
-             context, '/home', ModalRoute.withName('/home'));
+             context, '/upload', ModalRoute.withName('/upload'));
 
        }
 
