@@ -162,7 +162,7 @@ class _LoginState extends State<LoginPage>{
                           ),
                           onPressed: ()  {
                             Navigator.pushNamedAndRemoveUntil(
-                                context, '/signup', ModalRoute.withName('/signup'));
+                                context, '/register', ModalRoute.withName('/register'));
 
                           }),
                     ),

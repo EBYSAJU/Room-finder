@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/login.dart';
+import 'package:myapp/register.dart';
 import 'package:myapp/test.dart';
 import 'package:myapp/userprofile.dart';
 import 'firebase_options.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: 'My app',
       routes: {
         '/home': (context) =>profile(),
-        '/signup':(context)=>SignupPage(),
+        '/register':(context)=>RegisterPage(),
         '/login':(context)=>LoginPage(),
         '/upload':(context)=>HomePage(title: 'crop image')
       },
