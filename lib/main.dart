@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/login.dart';
 import 'package:myapp/register.dart';
 import 'package:myapp/test.dart';
+import 'package:myapp/userhomepage.dart';
 import 'package:myapp/userprofile.dart';
 import 'firebase_options.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         '/home': (context) =>profile(),
         '/register':(context)=>RegisterPage(),
         '/login':(context)=>LoginPage(),
-        '/upload':(context)=>HomePage(title: 'crop image')
+        '/upload':(context)=>HomePage(title: 'crop image'),
+        '/userhome':(context)=>userHomePage(),
       },
       theme: ThemeData(
         // This is the theme of your application.

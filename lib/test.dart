@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -6,6 +7,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart' as Path;
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -268,8 +270,17 @@ class _HomePageState extends State<HomePage> {
         .child('test/${Path.basename(_croppedFile!.path)}}');
           await storageReference.putData(await _pickedFile!.readAsBytes(),
             SettableMetadata(contentType: 'image/jpeg'),);
-  // String value = await storageReference.getDownloadURL();
+  String url = await storageReference.getDownloadURL();
+  print(url);
+  // FirebaseFirestore.instance.collection("images").doc().set({"imageUrl":url});
+     FirebaseFirestore.instance.collection("images").doc().set({"imageUrl":url});
    //downloadUrl.add(value);
+   if (FirebaseAuth.instance.currentUser != null) {
+     print(FirebaseAuth.instance.currentUser?.uid);
+     FirebaseFirestore.instance.collection("userData").doc(FirebaseAuth.instance.currentUser?.uid).update({"profilePhotoUrl":url});
+
+   }
+
    final snackBar= SnackBar(
      content: Text('Image Uploaded Successfully',textAlign: TextAlign.center,),
      duration: Duration(seconds: 5,microseconds: 2000),

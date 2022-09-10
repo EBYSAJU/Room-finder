@@ -19,7 +19,7 @@ class _RegisterState extends State<RegisterPage>{
           email: _email,
           password: _password
       ).then((value) {
-        FirebaseFirestore.instance.collection('userData').doc(value.user?.uid).set({"email":value.user?.email});
+        FirebaseFirestore.instance.collection('userData').doc(value.user?.uid).set({"email":value.user?.email,"profilePhotoUrl":""});
         Navigator.pushNamedAndRemoveUntil(
             context, '/upload', ModalRoute.withName('/upload'));
       });

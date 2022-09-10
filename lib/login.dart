@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:blur/blur.dart';
+
 
 class LoginPage extends StatefulWidget{
+
   const LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -23,8 +24,10 @@ class _LoginState extends State<LoginPage>{
        // print("hello");
        //  Navigator.pushNamedAndRemoveUntil(
          //    context, '/home', ModalRoute.withName('/home'));
+        // Navigator.pushNamedAndRemoveUntil(
+         //    context, '/upload', ModalRoute.withName('/upload'));
          Navigator.pushNamedAndRemoveUntil(
-             context, '/upload', ModalRoute.withName('/upload'));
+             context, '/userhome', ModalRoute.withName('/userhome'));
 
        }
 
@@ -65,13 +68,13 @@ class _LoginState extends State<LoginPage>{
      width=size.width;
   return Scaffold(
     body:Container(
-      decoration: BoxDecoration(
+      /*decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/bcimage.jpg"),
           fit: BoxFit.cover
         )
 
-      ),
+      ),*/
 
       child: Center(
         child: SingleChildScrollView(
