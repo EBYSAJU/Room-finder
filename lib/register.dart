@@ -20,13 +20,15 @@ class _RegisterState extends State<RegisterPage>{
           password: _password
       ).then((value) {
         FirebaseFirestore.instance.collection('userData').doc(value.user?.uid).set({"email":value.user?.email,"profilePhotoUrl":""});
-        Navigator.pushNamedAndRemoveUntil(
-            context, '/upload', ModalRoute.withName('/upload'));
+      //  Navigator.pushNamedAndRemoveUntil(
+         //   context, '/upload', ModalRoute.withName('/upload'));
+        Navigator.pushNamed(context, '/userhome');
       });
       if(credential!=null){
         // print("hello");
-        Navigator.pushNamedAndRemoveUntil(
-            context, '/upload', ModalRoute.withName('/upload'));
+      //  Navigator.pushNamedAndRemoveUntil(
+        //    context, '/upload', ModalRoute.withName('/upload'));
+        Navigator.pushNamed(context, '/userhome');
 
       }
 

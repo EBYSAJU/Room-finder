@@ -272,8 +272,15 @@ class _HomePageState extends State<HomePage> {
             SettableMetadata(contentType: 'image/jpeg'),);
   String url = await storageReference.getDownloadURL();
   print(url);
+   final image = <String, String>{
+     "userid": FirebaseAuth.instance.currentUser!.uid,
+     "url": url
+
+   };
   // FirebaseFirestore.instance.collection("images").doc().set({"imageUrl":url});
-     FirebaseFirestore.instance.collection("images").doc().set({"imageUrl":url});
+   //  FirebaseFirestore.instance.collection("images").doc(FirebaseAuth.instance.currentUser?.uid).set(image);
+   //FirebaseFirestore.instance.doc(FirebaseAuth.instance.currentUser!.uid).collection("images").add({"imageUrl":url});
+   FirebaseFirestore.instance.collection("images").doc(FirebaseAuth.instance.currentUser?.uid).collection("images").add({"Userid":FirebaseAuth.instance.currentUser?.uid,"imageUrl":url});
    //downloadUrl.add(value);
    if (FirebaseAuth.instance.currentUser != null) {
      print(FirebaseAuth.instance.currentUser?.uid);

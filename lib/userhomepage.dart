@@ -49,6 +49,12 @@ class _userHomeState extends State<userHomePage> {
         .collection("userData")
         .doc(FirebaseAuth.instance.currentUser?.uid)
         .get();
+    DocumentSnapshot snapshot1 = await FirebaseFirestore.instance
+        .collection("images")
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .get();
+    print("imagedata");
+    print(snapshot1.data());
 
     setState(() {
       urlProfile = snapshot.get('profilePhotoUrl');
@@ -70,8 +76,25 @@ class _userHomeState extends State<userHomePage> {
                 urlProfile,
                 fit: BoxFit.cover,
               ):null
+
             ),
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.upload),
+                  tooltip: 'Post a new room available',
+                  onPressed: () {
+                   // Navigator.pushNamedAndRemoveUntil(
+                     // context, '/upload', ModalRoute.withName('/upload'));
+                    Navigator.pushNamed(context, '/upload');
+                  },
+                ),
+              ]
+
           ),
+          /*TextButton(
+              onPressed: (){
+
+          }, child: Text("Upload")),*/
           const SliverToBoxAdapter(
             child: SizedBox(
               height: 20,

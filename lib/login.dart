@@ -24,10 +24,11 @@ class _LoginState extends State<LoginPage>{
        // print("hello");
        //  Navigator.pushNamedAndRemoveUntil(
          //    context, '/home', ModalRoute.withName('/home'));
+        //Navigator.pushNamedAndRemoveUntil(
+         //  context, '/upload', ModalRoute.withName('/upload'));
         // Navigator.pushNamedAndRemoveUntil(
-         //    context, '/upload', ModalRoute.withName('/upload'));
-         Navigator.pushNamedAndRemoveUntil(
-             context, '/userhome', ModalRoute.withName('/userhome'));
+          // context, '/userhome', ModalRoute.withName('/userhome'));
+         Navigator.pushNamed(context, '/userhome');
 
        }
 
