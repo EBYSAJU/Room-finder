@@ -4,9 +4,9 @@
 
 ## Programming Language used: Dart
 
-## Software Developement Kit:Flutter
+## Software Developement Kit: Flutter
 
-## Database:Firebase
+## Database: Firebase
 
 
 
